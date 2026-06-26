@@ -29,19 +29,13 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:var(--body);background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6}
-
-/* SCANLINES OVERLAY */
 body::after{
   content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
   background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px);
   animation:scanmove 8s linear infinite;
 }
 @keyframes scanmove{from{background-position:0 0}to{background-position:0 100px}}
-
-/* CANVAS */
 #bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
-
-/* BOOT SCREEN */
 #boot{
   position:fixed;inset:0;z-index:1000;
   background:#000;
@@ -73,8 +67,6 @@ body::after{
 }
 .boot-enter:hover{background:rgba(0,255,170,0.1);box-shadow:var(--glow)}
 @keyframes blink{50%{opacity:0}}
-
-/* NAV */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
   display:flex;align-items:center;justify-content:space-between;
@@ -96,8 +88,6 @@ nav{
 .nav-status{font-family:var(--mono);font-size:0.6rem;color:var(--green);letter-spacing:0.1em;display:flex;align-items:center;gap:0.5rem}
 .status-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse-dot 1.5s ease-in-out infinite;box-shadow:0 0 6px var(--green)}
 @keyframes pulse-dot{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:0.7}}
-
-/* HERO */
 #hero{
   min-height:100vh;display:flex;flex-direction:column;
   align-items:center;justify-content:center;
@@ -117,7 +107,6 @@ nav{
   animation:orangeGlow 2s ease-in-out infinite alternate;
 }
 @keyframes orangeGlow{from{text-shadow:0 0 5px var(--orange)}to{text-shadow:0 0 20px var(--orange)}}
-
 .hero-name{
   font-family:var(--display);
   font-size:clamp(2rem,7vw,5.5rem);
@@ -133,7 +122,6 @@ nav{
   color:var(--muted);margin-bottom:0.4rem;min-height:1.4em;
 }
 .hero-cursor{display:inline-block;width:2px;height:1em;background:var(--green);vertical-align:middle;margin-left:2px;animation:blink 0.9s step-end infinite}
-
 .hero-xp{
   display:flex;align-items:center;gap:1rem;margin:1.5rem 0;
   justify-content:center;flex-wrap:wrap;
@@ -146,7 +134,6 @@ nav{
 .xp-fill.green{background:linear-gradient(90deg,var(--green2),var(--green));box-shadow:0 0 8px var(--green);width:78%}
 .xp-fill.blue{background:linear-gradient(90deg,#0088cc,var(--blue));box-shadow:0 0 8px var(--blue);width:85%}
 .xp-fill.orange{background:linear-gradient(90deg,#cc4400,var(--orange));box-shadow:0 0 8px var(--orange);width:70%}
-
 .hero-stats{
   display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;
   margin:1.5rem 0;
@@ -164,7 +151,6 @@ nav{
 .hero-stat:hover::before{left:100%}
 .hs-val{font-family:var(--display);font-size:1.3rem;color:var(--green);font-weight:700;line-height:1}
 .hs-key{font-family:var(--mono);font-size:0.58rem;color:var(--muted);letter-spacing:0.12em;margin-top:0.3rem}
-
 .hero-ctas{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem}
 .btn-start{
   padding:0.85rem 2.2rem;
@@ -186,12 +172,9 @@ nav{
   transition:border-color 0.3s,color 0.3s;
 }
 .btn-outline:hover{border-color:var(--green);color:var(--green)}
-
 .scroll-cue{margin-top:4rem;font-family:var(--mono);font-size:0.6rem;letter-spacing:0.2em;color:var(--dim);display:flex;flex-direction:column;align-items:center;gap:0.5rem}
 .scroll-beam{width:1px;height:50px;background:linear-gradient(to bottom,var(--green),transparent);animation:beam 2s ease-in-out infinite}
 @keyframes beam{0%,100%{opacity:0.2;transform:scaleY(0.8)}50%{opacity:1;transform:scaleY(1)}}
-
-/* SECTION BASE */
 section{position:relative;z-index:1}
 .shell{padding:6rem 5vw;max-width:1200px;margin:0 auto}
 .section-head{margin-bottom:3.5rem}
@@ -201,8 +184,6 @@ section{position:relative;z-index:1}
 .s-divider{display:flex;align-items:center;gap:1rem;margin-top:0.5rem}
 .s-divider::before{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--green),transparent)}
 .s-divider span{font-family:var(--mono);font-size:0.6rem;color:var(--muted)}
-
-/* ABOUT */
 #about{background:var(--bg2)}
 .about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;align-items:start}
 .about-terminal{
@@ -223,7 +204,6 @@ section{position:relative;z-index:1}
 .term-line .out{color:#7ab89a}
 .term-line .hi{color:#fff}
 .term-line .warn{color:var(--orange)}
-
 .about-panels{display:flex;flex-direction:column;gap:1rem}
 .info-card{
   background:var(--surface);border:1px solid var(--border);border-radius:8px;
@@ -236,8 +216,6 @@ section{position:relative;z-index:1}
 .ic-val{font-size:0.92rem;color:var(--text);font-weight:500}
 .ic-val a{color:var(--green);text-decoration:none}
 .ic-val a:hover{text-decoration:underline}
-
-/* EXPERIENCE */
 #experience{background:var(--bg)}
 .exp-grid{display:grid;gap:1.5rem}
 .exp-card{
@@ -264,15 +242,10 @@ section{position:relative;z-index:1}
 .exp-bullets li{font-size:0.83rem;color:var(--muted);padding-left:1rem;position:relative;line-height:1.6}
 .exp-bullets li::before{content:'▸';position:absolute;left:0;color:var(--green);font-size:0.7rem}
 .exp-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1rem}
-.exp-tag{
-  padding:0.18rem 0.6rem;font-family:var(--mono);font-size:0.6rem;letter-spacing:0.06em;
-  border-radius:3px;border:1px solid;
-}
+.exp-tag{padding:0.18rem 0.6rem;font-family:var(--mono);font-size:0.6rem;letter-spacing:0.06em;border-radius:3px;border:1px solid;}
 .exp-tag.g{color:var(--green);border-color:rgba(0,255,170,0.25);background:rgba(0,255,170,0.05)}
 .exp-tag.b{color:var(--blue);border-color:rgba(0,170,255,0.25);background:rgba(0,170,255,0.05)}
 .exp-tag.o{color:var(--orange);border-color:rgba(255,107,0,0.25);background:rgba(255,107,0,0.05)}
-
-/* SKILLS */
 #skills{background:var(--bg2)}
 .skills-radar{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem}
 .skill-card{
@@ -284,7 +257,6 @@ section{position:relative;z-index:1}
 .sk-icon{font-size:1.3rem}
 .sk-name{font-family:var(--display);font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--green)}
 .sk-items{display:flex;flex-direction:column;gap:0.55rem}
-.sk-item{}
 .sk-item-top{display:flex;justify-content:space-between;margin-bottom:0.25rem}
 .sk-item-name{font-family:var(--mono);font-size:0.68rem;color:var(--text)}
 .sk-item-lvl{font-family:var(--mono);font-size:0.58rem;color:var(--muted)}
@@ -294,9 +266,40 @@ section{position:relative;z-index:1}
 .sk-fill.c2{background:linear-gradient(90deg,#0088cc,var(--blue));box-shadow:0 0 6px var(--blue)}
 .sk-fill.c3{background:linear-gradient(90deg,#cc4400,var(--orange));box-shadow:0 0 6px var(--orange)}
 .sk-fill.c4{background:linear-gradient(90deg,#cc0044,var(--red));box-shadow:0 0 6px var(--red)}
-
-/* PROJECTS */
 #projects{background:var(--bg)}
+.proj-group-label{margin-bottom:1.2rem}
+.proj-group-tag{
+  display:inline-flex;align-items:center;gap:0.6rem;
+  font-family:var(--mono);font-size:0.62rem;letter-spacing:0.18em;
+  text-transform:uppercase;padding:0.45rem 1rem;
+  border-radius:4px;border:1px solid;
+}
+.proj-group-tag.live{
+  color:var(--green);border-color:rgba(0,255,170,0.3);
+  background:rgba(0,255,170,0.06);
+}
+.proj-group-tag.gh{
+  color:var(--muted);border-color:var(--border);
+  background:var(--surface);
+}
+.proj-group-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--green);box-shadow:0 0 6px var(--green);
+  animation:pulse-dot 1.5s ease-in-out infinite;
+}
+.gh-dot{background:var(--muted);box-shadow:none;animation:none;}
+.proj-gh-live{
+  color:var(--green) !important;
+  border-color:rgba(0,255,170,0.35) !important;
+  font-size:0.58rem !important;
+  width:auto !important;
+  padding:0 0.7rem !important;
+  letter-spacing:0.05em;
+}
+.proj-gh-live:hover{
+  background:rgba(0,255,170,0.1) !important;
+  box-shadow:0 0 10px rgba(0,255,170,0.3) !important;
+}
 .proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:1.5rem}
 .proj-card{
   background:var(--surface);border:1px solid var(--border);border-radius:10px;
@@ -311,6 +314,24 @@ section{position:relative;z-index:1}
   transform:scaleX(0);transform-origin:left;transition:transform 0.4s;
 }
 .proj-card:hover::after{transform:scaleX(1)}
+
+/* FEATURED card — green glow border for OpsGrid */
+.proj-card.featured{
+  border-color:rgba(0,255,170,0.25);
+  box-shadow:0 0 30px rgba(0,255,170,0.07);
+}
+.proj-card.featured::before{
+  content:'LIVE DEMO';
+  position:absolute;top:14px;right:14px;
+  font-family:var(--mono);font-size:0.55rem;letter-spacing:0.15em;
+  color:#000;background:var(--green);
+  padding:0.2rem 0.55rem;border-radius:3px;
+  box-shadow:0 0 10px var(--green);
+  animation:pulse-badge 2s ease-in-out infinite;
+  z-index:2;
+}
+@keyframes pulse-badge{0%,100%{box-shadow:0 0 10px var(--green)}50%{box-shadow:0 0 20px var(--green),0 0 40px rgba(0,255,170,0.3)}}
+
 .proj-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem}
 .proj-badge{
   font-family:var(--mono);font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;
@@ -320,9 +341,7 @@ section{position:relative;z-index:1}
 .proj-badge.cicd{color:var(--green);border:1px solid rgba(0,255,170,0.3);background:rgba(0,255,170,0.06)}
 .proj-badge.infra{color:var(--orange);border:1px solid rgba(255,107,0,0.3);background:rgba(255,107,0,0.06)}
 .proj-badge.app{color:var(--blue);border:1px solid rgba(0,170,255,0.3);background:rgba(0,170,255,0.06)}
-.proj-link-icon{
-  display:flex;align-items:center;gap:0.5rem;
-}
+.proj-link-icon{display:flex;align-items:center;gap:0.5rem;}
 .proj-gh{
   width:30px;height:30px;border:1px solid var(--border);border-radius:6px;
   display:flex;align-items:center;justify-content:center;
@@ -339,8 +358,6 @@ section{position:relative;z-index:1}
   color:var(--green);border:1px solid rgba(0,255,170,0.2);
   border-radius:3px;background:rgba(0,255,170,0.04);
 }
-
-/* CONTACT */
 #contact{background:var(--bg2)}
 .contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
 .contact-left p{font-size:0.92rem;color:var(--muted);line-height:1.85;margin-bottom:1.8rem}
@@ -357,7 +374,6 @@ section{position:relative;z-index:1}
 .c-detail{display:flex;flex-direction:column}
 .c-type{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--dim);margin-bottom:0.1rem}
 .c-val{font-size:0.83rem}
-
 .contact-form{display:flex;flex-direction:column;gap:1.1rem}
 .cf-group{display:flex;flex-direction:column;gap:0.35rem}
 .cf-label{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--dim)}
@@ -370,8 +386,6 @@ section{position:relative;z-index:1}
 .cf-input:focus,.cf-area:focus{border-color:rgba(0,255,170,0.4);box-shadow:0 0 0 3px rgba(0,255,170,0.06)}
 .cf-area{min-height:130px}
 .cf-input::placeholder,.cf-area::placeholder{color:var(--dim)}
-
-/* FOOTER */
 footer{
   position:relative;z-index:1;border-top:1px solid var(--border);
   padding:2rem 5vw;display:flex;align-items:center;justify-content:space-between;
@@ -381,13 +395,10 @@ footer{
 .ft-copy span{color:var(--green)}
 .ft-top{font-family:var(--mono);font-size:0.65rem;color:var(--dim);text-decoration:none;letter-spacing:0.1em;transition:color 0.2s}
 .ft-top:hover{color:var(--green)}
-
-/* FADE IN */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s,transform 0.7s}
 .reveal.in{opacity:1;transform:translateY(0)}
 .reveal-left{opacity:0;transform:translateX(-28px);transition:opacity 0.7s,transform 0.7s}
 .reveal-left.in{opacity:1;transform:translateX(0)}
-
 @media(max-width:768px){
   .about-grid,.contact-wrap{grid-template-columns:1fr;gap:2rem}
   .nav-links{display:none}
@@ -431,7 +442,6 @@ footer{
   <div class="hero-rank">★ FRESHER RANK — LEVEL 01 ★</div>
   <h1 class="hero-name">RAMA KRISHNA<br>VANKINI</h1>
   <div class="hero-class"><span id="tw-text"></span><span class="hero-cursor"></span></div>
-
   <div class="hero-xp">
     <div class="xp-bar-wrap">
       <div class="xp-label"><span>AWS CLOUD</span><span>78 XP</span></div>
@@ -446,14 +456,12 @@ footer{
       <div class="xp-bar"><div class="xp-fill orange"></div></div>
     </div>
   </div>
-
   <div class="hero-stats">
-    <div class="hero-stat"><div class="hs-val">2+</div><div class="hs-key">PROJECTS DEPLOYED</div></div>
+    <div class="hero-stat"><div class="hs-val">3+</div><div class="hs-key">PROJECTS DEPLOYED</div></div>
     <div class="hero-stat"><div class="hs-val">AWS</div><div class="hs-key">PRIMARY CLOUD</div></div>
     <div class="hero-stat"><div class="hs-val">B.Tech</div><div class="hs-key">DEGREE</div></div>
     <div class="hero-stat"><div class="hs-val">IaC</div><div class="hs-key">TERRAFORM + OPENTOFU</div></div>
   </div>
-
   <div class="hero-ctas">
     <a href="#projects" class="btn-start">View Projects</a>
     <a href="#contact" class="btn-outline">Get In Touch</a>
@@ -497,30 +505,12 @@ footer{
         </div>
       </div>
       <div class="about-panels reveal">
-        <div class="info-card">
-          <div class="ic-label">Full Name</div>
-          <div class="ic-val">Rama Krishna Vankini</div>
-        </div>
-        <div class="info-card">
-          <div class="ic-label">Role</div>
-          <div class="ic-val">DevOps / DevSecOps Engineer</div>
-        </div>
-        <div class="info-card">
-          <div class="ic-label">Email</div>
-          <div class="ic-val"><a href="mailto:ramakrishnavankini23@gmail.com">ramakrishnavankini23@gmail.com</a></div>
-        </div>
-        <div class="info-card">
-          <div class="ic-label">Phone</div>
-          <div class="ic-val"><a href="tel:+919666397532">+91-9666397532</a></div>
-        </div>
-        <div class="info-card">
-          <div class="ic-label">Location</div>
-          <div class="ic-val">Andhra Pradesh, India</div>
-        </div>
-        <div class="info-card">
-          <div class="ic-label">GitHub</div>
-          <div class="ic-val"><a href="https://github.com/RKVankini" target="_blank">github.com/RKVankini</a></div>
-        </div>
+        <div class="info-card"><div class="ic-label">Full Name</div><div class="ic-val">Rama Krishna Vankini</div></div>
+        <div class="info-card"><div class="ic-label">Role</div><div class="ic-val">DevOps / DevSecOps Engineer</div></div>
+        <div class="info-card"><div class="ic-label">Email</div><div class="ic-val"><a href="mailto:ramakrishnavankini23@gmail.com">ramakrishnavankini23@gmail.com</a></div></div>
+        <div class="info-card"><div class="ic-label">Phone</div><div class="ic-val"><a href="tel:+919666397532">+91-9666397532</a></div></div>
+        <div class="info-card"><div class="ic-label">Location</div><div class="ic-val">Andhra Pradesh, India</div></div>
+        <div class="info-card"><div class="ic-label">GitHub</div><div class="ic-val"><a href="https://github.com/RKVankini" target="_blank">github.com/RKVankini</a></div></div>
       </div>
     </div>
   </div>
@@ -535,7 +525,6 @@ footer{
       <div class="s-divider"><span>CAREER HISTORY DECRYPTED</span></div>
     </div>
     <div class="exp-grid">
-
       <div class="exp-card reveal">
         <div class="exp-icon">🛡</div>
         <div>
@@ -557,7 +546,6 @@ footer{
           </div>
         </div>
       </div>
-
       <div class="exp-card reveal">
         <div class="exp-icon">📞</div>
         <div>
@@ -576,7 +564,6 @@ footer{
           </div>
         </div>
       </div>
-
       <div class="exp-card reveal">
         <div class="exp-icon">🎓</div>
         <div>
@@ -588,12 +575,9 @@ footer{
             <li>Self-transitioned into Cloud & DevOps through hands-on project work and certifications</li>
             <li>Built real-world DevSecOps pipelines on AWS while pursuing degree</li>
           </ul>
-          <div class="exp-tags">
-            <span class="exp-tag g">B.Tech 2025</span>
-          </div>
+          <div class="exp-tags"><span class="exp-tag g">B.Tech 2025</span></div>
         </div>
       </div>
-
       <div class="exp-card reveal">
         <div class="exp-icon">📘</div>
         <div>
@@ -601,12 +585,9 @@ footer{
           <div class="exp-date">2021</div>
           <div class="exp-role">Diploma — Mechanical Engineering</div>
           <div class="exp-org">VIKAS Polytechnic College</div>
-          <div class="exp-tags">
-            <span class="exp-tag b">Diploma 2021</span>
-          </div>
+          <div class="exp-tags"><span class="exp-tag b">Diploma 2021</span></div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -620,7 +601,6 @@ footer{
       <div class="s-divider"><span>TECH ARSENAL SCANNED</span></div>
     </div>
     <div class="skills-radar">
-
       <div class="skill-card reveal">
         <div class="sk-head"><div class="sk-icon">☁</div><div class="sk-name">Cloud Platform</div></div>
         <div class="sk-items">
@@ -630,7 +610,6 @@ footer{
           <div class="sk-item"><div class="sk-item-top"><span class="sk-item-name">Auto Scaling / ECR</span><span class="sk-item-lvl">INTERMEDIATE</span></div><div class="sk-bar"><div class="sk-fill c1" data-w="68"></div></div></div>
         </div>
       </div>
-
       <div class="skill-card reveal">
         <div class="sk-head"><div class="sk-icon">⚙</div><div class="sk-name">IaC & Automation</div></div>
         <div class="sk-items">
@@ -640,7 +619,6 @@ footer{
           <div class="sk-item"><div class="sk-item-top"><span class="sk-item-name">Python (scripting)</span><span class="sk-item-lvl">INTERMEDIATE</span></div><div class="sk-bar"><div class="sk-fill c2" data-w="60"></div></div></div>
         </div>
       </div>
-
       <div class="skill-card reveal">
         <div class="sk-head"><div class="sk-icon">🐳</div><div class="sk-name">Containers & Orchestration</div></div>
         <div class="sk-items">
@@ -649,7 +627,6 @@ footer{
           <div class="sk-item"><div class="sk-item-top"><span class="sk-item-name">Amazon ECR</span><span class="sk-item-lvl">INTERMEDIATE</span></div><div class="sk-bar"><div class="sk-fill c1" data-w="75"></div></div></div>
         </div>
       </div>
-
       <div class="skill-card reveal">
         <div class="sk-head"><div class="sk-icon">🔁</div><div class="sk-name">CI/CD Pipelines</div></div>
         <div class="sk-items">
@@ -658,7 +635,6 @@ footer{
           <div class="sk-item"><div class="sk-item-top"><span class="sk-item-name">Maven</span><span class="sk-item-lvl">INTERMEDIATE</span></div><div class="sk-bar"><div class="sk-fill c3" data-w="68"></div></div></div>
         </div>
       </div>
-
       <div class="skill-card reveal">
         <div class="sk-head"><div class="sk-icon">🔐</div><div class="sk-name">Security (DevSecOps)</div></div>
         <div class="sk-items">
@@ -668,7 +644,6 @@ footer{
           <div class="sk-item"><div class="sk-item-top"><span class="sk-item-name">Docker Scout</span><span class="sk-item-lvl">LEARNING</span></div><div class="sk-bar"><div class="sk-fill c4" data-w="50"></div></div></div>
         </div>
       </div>
-
       <div class="skill-card reveal">
         <div class="sk-head"><div class="sk-icon">📊</div><div class="sk-name">Monitoring & Logging</div></div>
         <div class="sk-items">
@@ -677,7 +652,6 @@ footer{
           <div class="sk-item"><div class="sk-item-top"><span class="sk-item-name">Grafana</span><span class="sk-item-lvl">INTERMEDIATE</span></div><div class="sk-bar"><div class="sk-fill c2" data-w="62"></div></div></div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -688,7 +662,88 @@ footer{
     <div class="section-head reveal">
       <div class="s-eyebrow">04 / PROJECTS</div>
       <h2 class="s-title">COMPLETED MISSIONS</h2>
-      <div class="s-divider"><span>5 DEPLOYMENTS CONFIRMED</span></div>
+      <div class="s-divider"><span>6 DEPLOYMENTS CONFIRMED</span></div>
+    </div>
+
+    <!-- ══ LIVE DEMO GROUP ══ -->
+    <div class="proj-group-label reveal">
+      <div class="proj-group-tag live">
+        <span class="proj-group-dot"></span>
+        LIVE DEPLOYMENTS — 3 ACTIVE
+      </div>
+    </div>
+    <div class="proj-grid" style="margin-bottom:3rem;">
+
+      <div class="proj-card featured reveal">
+        <div class="proj-head">
+          <span class="proj-badge devsecops">DevSecOps</span>
+          <div class="proj-link-icon">
+            <a href="https://github.com/RKVankini/opsgrid" target="_blank" class="proj-gh">GH</a>
+            <a href="https://rkvankini.github.io/opsgrid/" target="_blank" class="proj-gh proj-gh-live" title="Live Demo">▶ LIVE</a>
+          </div>
+        </div>
+        <div class="proj-icon-big">🖥</div>
+        <div class="proj-name">OpsGrid — Live DevOps Operations Dashboard</div>
+        <div class="proj-desc">
+          Production-grade DevOps monitoring dashboard simulating a real AWS EKS environment
+          with 12 microservices across 6 Kubernetes nodes. Features a complete DevSecOps pipeline —
+          GitHub Actions + Jenkins with SonarQube quality gates, Trivy CVE scanning, OWASP ZAP
+          dynamic testing, and 84 Terraform-managed AWS resources with live log streaming.
+        </div>
+        <div class="proj-stack">
+          <span class="stack-chip">AWS EKS</span><span class="stack-chip">Kubernetes</span>
+          <span class="stack-chip">Terraform</span><span class="stack-chip">GitHub Actions</span>
+          <span class="stack-chip">Jenkins</span><span class="stack-chip">SonarQube</span>
+          <span class="stack-chip">Trivy</span><span class="stack-chip">OWASP ZAP</span>
+          <span class="stack-chip">Docker</span><span class="stack-chip">AWS ECR</span>
+        </div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-head">
+          <span class="proj-badge app">Application</span>
+          <div class="proj-link-icon">
+            <a href="https://github.com/RKVankini/weather-application" target="_blank" class="proj-gh">GH</a>
+            <a href="https://rkvankini.github.io/weather-application/" target="_blank" class="proj-gh proj-gh-live" title="Live Demo">▶ LIVE</a>
+          </div>
+        </div>
+        <div class="proj-icon-big">🌦</div>
+        <div class="proj-name">Real-Time Weather Dashboard with Live API Integration</div>
+        <div class="proj-desc">
+          A real-time weather application fetching live data via API integration. Clean frontend interface showing temperature, conditions, and forecasts. Demonstrates full-stack and API integration skills.
+        </div>
+        <div class="proj-stack">
+          <span class="stack-chip">JavaScript</span><span class="stack-chip">API Integration</span><span class="stack-chip">HTML/CSS</span>
+        </div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-head">
+          <span class="proj-badge app">Application</span>
+          <div class="proj-link-icon">
+            <a href="https://github.com/RKVankini/mini-game-hub" target="_blank" class="proj-gh">GH</a>
+            <a href="https://rkvankini.github.io/mini-game-hub/" target="_blank" class="proj-gh proj-gh-live" title="Live Demo">▶ LIVE</a>
+          </div>
+        </div>
+        <div class="proj-icon-big">🎮</div>
+        <div class="proj-name">Interactive Browser-Based Mini Game Collection</div>
+        <div class="proj-desc">
+          A collection of browser-based mini-games built in JavaScript. Showcases frontend interactivity, game logic, and DOM manipulation skills — and a little bit of fun.
+        </div>
+        <div class="proj-stack">
+          <span class="stack-chip">JavaScript</span><span class="stack-chip">HTML5</span>
+          <span class="stack-chip">CSS3</span><span class="stack-chip">Game Logic</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ══ GITHUB ONLY GROUP ══ -->
+    <div class="proj-group-label reveal">
+      <div class="proj-group-tag gh">
+        <span class="proj-group-dot gh-dot"></span>
+        INFRASTRUCTURE PROJECTS — SOURCE CODE ON GITHUB
+      </div>
     </div>
     <div class="proj-grid">
 
@@ -721,12 +776,12 @@ footer{
         <div class="proj-icon-big">⚙</div>
         <div class="proj-name">End-to-End Java CI/CD Pipeline with Jenkins, Docker & Amazon EKS</div>
         <div class="proj-desc">
-          End-to-end CI/CD pipeline for a Java application using GitHub, Maven, Jenkins, Docker, Amazon ECR, and Amazon EKS. Automated source code checkout, build, testing, and deployment to EKS via Kubernetes manifests. Reduced manual intervention significantly.
+          End-to-end CI/CD pipeline for a Java application using GitHub, Maven, Jenkins, Docker, Amazon ECR, and Amazon EKS. Automated source code checkout, build, testing, and deployment to EKS via Kubernetes manifests.
         </div>
         <div class="proj-stack">
           <span class="stack-chip">Java</span><span class="stack-chip">Maven</span><span class="stack-chip">Jenkins</span>
-          <span class="stack-chip">Docker</span><span class="stack-chip">Amazon ECR</span><span class="stack-chip">Amazon EKS</span>
-          <span class="stack-chip">Kubernetes</span><span class="stack-chip">GitHub</span>
+          <span class="stack-chip">Docker</span><span class="stack-chip">Amazon ECR</span>
+          <span class="stack-chip">Amazon EKS</span><span class="stack-chip">Kubernetes</span>
         </div>
       </div>
 
@@ -744,8 +799,8 @@ footer{
         </div>
         <div class="proj-stack">
           <span class="stack-chip">AWS</span><span class="stack-chip">Multi-Region</span><span class="stack-chip">VPC</span>
-          <span class="stack-chip">ALB</span><span class="stack-chip">Auto Scaling</span><span class="stack-chip">RDS</span>
-          <span class="stack-chip">Terraform</span>
+          <span class="stack-chip">ALB</span><span class="stack-chip">Auto Scaling</span>
+          <span class="stack-chip">RDS</span><span class="stack-chip">Terraform</span>
         </div>
       </div>
 
@@ -767,43 +822,6 @@ footer{
         </div>
       </div>
 
-      <div class="proj-card reveal">
-        <div class="proj-head">
-          <span class="proj-badge app">Application</span>
-          <div class="proj-link-icon">
-            <a href="https://github.com/RKVankini/weather-application" target="_blank" class="proj-gh">GH</a>
-            <a href="https://rkvankini.github.io/weather-application/" target="_blank" class="proj-gh" style="color:var(--green);border-color:rgba(0,255,170,0.35)" title="Live Demo">▶</a>
-          </div>
-        </div>
-        <div class="proj-icon-big">🌦</div>
-        <div class="proj-name">Real-Time Weather Dashboard with Live API Integration</div>
-        <div class="proj-desc">
-          A real-time weather application fetching live data via API integration. Clean frontend interface showing temperature, conditions, and forecasts. Demonstrates full-stack and API integration skills.
-        </div>
-        <div class="proj-stack">
-          <span class="stack-chip">JavaScript</span><span class="stack-chip">API Integration</span><span class="stack-chip">HTML/CSS</span>
-        </div>
-      </div>
-
-      <div class="proj-card reveal">
-        <div class="proj-head">
-          <span class="proj-badge app">Application</span>
-          <div class="proj-link-icon">
-            <a href="https://github.com/RKVankini/mini-game-hub" target="_blank" class="proj-gh">GH</a>
-            <a href="https://rkvankini.github.io/mini-game-hub/" target="_blank" class="proj-gh" style="color:var(--green);border-color:rgba(0,255,170,0.35)" title="Live Demo">▶</a>
-          </div>
-        </div>
-        <div class="proj-icon-big">🎮</div>
-        <div class="proj-name">Interactive Browser-Based Mini Game Collection</div>
-        <div class="proj-desc">
-          A collection of browser-based mini-games built in JavaScript. Showcases frontend interactivity, game logic, and DOM manipulation skills — and a little bit of fun.
-        </div>
-        <div class="proj-stack">
-          <span class="stack-chip">JavaScript</span><span class="stack-chip">HTML5</span><span class="stack-chip">CSS3</span>
-          <span class="stack-chip">Game Logic</span>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -818,10 +836,7 @@ footer{
     </div>
     <div class="contact-wrap">
       <div class="contact-left reveal-left">
-        <p>
-          I'm actively seeking my first professional DevOps/DevSecOps role. If you're building
-          secure, scalable cloud infrastructure and need someone who ships — let's connect.
-        </p>
+        <p>I'm actively seeking my first professional DevOps/DevSecOps role. If you're building secure, scalable cloud infrastructure and need someone who ships — let's connect.</p>
         <div class="contact-cards">
           <a href="mailto:ramakrishnavankini23@gmail.com" class="c-card">
             <div class="c-icon">✉</div>
@@ -842,18 +857,9 @@ footer{
         </div>
       </div>
       <div class="contact-form reveal">
-        <div class="cf-group">
-          <label class="cf-label">Name</label>
-          <input class="cf-input" type="text" placeholder="Your name"/>
-        </div>
-        <div class="cf-group">
-          <label class="cf-label">Email</label>
-          <input class="cf-input" type="email" placeholder="your@email.com"/>
-        </div>
-        <div class="cf-group">
-          <label class="cf-label">Message</label>
-          <textarea class="cf-area" placeholder="What would you like to discuss?"></textarea>
-        </div>
+        <div class="cf-group"><label class="cf-label">Name</label><input class="cf-input" type="text" placeholder="Your name"/></div>
+        <div class="cf-group"><label class="cf-label">Email</label><input class="cf-input" type="email" placeholder="your@email.com"/></div>
+        <div class="cf-group"><label class="cf-label">Message</label><textarea class="cf-area" placeholder="What would you like to discuss?"></textarea></div>
         <button class="btn-start" style="align-self:flex-start">TRANSMIT →</button>
       </div>
     </div>
@@ -866,8 +872,7 @@ footer{
 </footer>
 
 <script>
-/* ── BOOT SEQUENCE ── */
-const bootLines = [
+const bootLines=[
   '> INITIALIZING PORTFOLIO OS v2.0...',
   '> LOADING IDENTITY MODULE............[OK]',
   '> MOUNTING CLOUD CREDENTIALS..........[OK]',
@@ -878,134 +883,100 @@ const bootLines = [
   '> DEPLOYING TO PRODUCTION.............[OK]',
   '> PORTFOLIO READY.',
 ];
-const bootLinesEl = document.getElementById('boot-lines');
-const bootFill = document.getElementById('boot-fill');
-const bootEnter = document.getElementById('boot-enter');
-
-let li = 0;
-function showLine() {
-  if (li >= bootLines.length) {
-    bootEnter.style.display = 'block';
-    return;
-  }
-  const d = document.createElement('div');
-  d.style.cssText = 'font-size:0.68rem;color:#00cc88;margin:0.15rem 0;opacity:0;transition:opacity 0.3s';
-  d.textContent = bootLines[li];
+const bootLinesEl=document.getElementById('boot-lines');
+const bootFill=document.getElementById('boot-fill');
+const bootEnter=document.getElementById('boot-enter');
+let li=0;
+function showLine(){
+  if(li>=bootLines.length){bootEnter.style.display='block';return;}
+  const d=document.createElement('div');
+  d.style.cssText='font-size:0.68rem;color:#00cc88;margin:0.15rem 0;opacity:0;transition:opacity 0.3s';
+  d.textContent=bootLines[li];
   bootLinesEl.appendChild(d);
-  setTimeout(() => d.style.opacity = 1, 30);
-  const pct = Math.round(((li + 1) / bootLines.length) * 100);
-  bootFill.style.width = pct + '%';
+  setTimeout(()=>d.style.opacity=1,30);
+  const pct=Math.round(((li+1)/bootLines.length)*100);
+  bootFill.style.width=pct+'%';
   li++;
-  setTimeout(showLine, 200 + Math.random() * 150);
+  setTimeout(showLine,200+Math.random()*150);
 }
-setTimeout(showLine, 400);
-
-function enterPortfolio() {
+setTimeout(showLine,400);
+function enterPortfolio(){
   document.getElementById('boot').classList.add('hide');
-  setTimeout(() => document.getElementById('boot').style.display = 'none', 900);
+  setTimeout(()=>document.getElementById('boot').style.display='none',900);
 }
-
-/* ── CANVAS GRID + PARTICLES ── */
-const canvas = document.getElementById('bg-canvas');
-const ctx = canvas.getContext('2d');
-let W, H, particles = [];
-
-function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+const canvas=document.getElementById('bg-canvas');
+const ctx=canvas.getContext('2d');
+let W,H,particles=[];
+function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
 resize();
-window.addEventListener('resize', () => { resize(); initParticles(); });
-
-function initParticles() {
-  particles = [];
-  const n = Math.floor(W * H / 6000);
-  for (let i = 0; i < n; i++) particles.push({
-    x: Math.random() * W, y: Math.random() * H,
-    r: Math.random() * 1.5 + 0.3,
-    vx: (Math.random() - 0.5) * 0.2,
-    vy: (Math.random() - 0.5) * 0.2,
-    o: Math.random() * 0.5 + 0.1,
-    tw: Math.random() * Math.PI * 2
+window.addEventListener('resize',()=>{resize();initParticles();});
+function initParticles(){
+  particles=[];
+  const n=Math.floor(W*H/6000);
+  for(let i=0;i<n;i++)particles.push({
+    x:Math.random()*W,y:Math.random()*H,
+    r:Math.random()*1.5+0.3,
+    vx:(Math.random()-0.5)*0.2,vy:(Math.random()-0.5)*0.2,
+    o:Math.random()*0.5+0.1,tw:Math.random()*Math.PI*2
   });
 }
 initParticles();
-
-let scrollY = 0;
-window.addEventListener('scroll', () => scrollY = window.scrollY);
-
-function drawGrid() {
-  ctx.clearRect(0, 0, W, H);
-  const gs = 60;
-  const ox = scrollY * 0.05 % gs;
-  ctx.strokeStyle = 'rgba(0,255,170,0.04)';
-  ctx.lineWidth = 1;
-  for (let x = -gs + ox; x < W + gs; x += gs) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); }
-  for (let y = 0; y < H + gs; y += gs) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
+let scrollY=0;
+window.addEventListener('scroll',()=>scrollY=window.scrollY);
+function drawGrid(){
+  ctx.clearRect(0,0,W,H);
+  const gs=60,ox=scrollY*0.05%gs;
+  ctx.strokeStyle='rgba(0,255,170,0.04)';ctx.lineWidth=1;
+  for(let x=-gs+ox;x<W+gs;x+=gs){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
+  for(let y=0;y<H+gs;y+=gs){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
 }
-
-function drawParticles() {
-  particles.forEach(p => {
-    p.x += p.vx; p.y += p.vy;
-    p.tw += 0.01;
-    if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
-    if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
-    const a = p.o * (0.6 + 0.4 * Math.sin(p.tw));
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(0,255,170,${a})`;
-    ctx.fill();
+function drawParticles(){
+  particles.forEach(p=>{
+    p.x+=p.vx;p.y+=p.vy;p.tw+=0.01;
+    if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;
+    const a=p.o*(0.6+0.4*Math.sin(p.tw));
+    ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle=`rgba(0,255,170,${a})`;ctx.fill();
   });
 }
-
-function loop() { drawGrid(); drawParticles(); requestAnimationFrame(loop); }
+function loop(){drawGrid();drawParticles();requestAnimationFrame(loop);}
 loop();
-
-/* ── TYPEWRITER ── */
-const phrases = [
-  'DevOps / DevSecOps Engineer',
-  'AWS Cloud Practitioner',
-  'Terraform & IaC Specialist',
-  'Kubernetes & Docker Enthusiast',
-  'CI/CD Pipeline Architect',
-  'Security-First Infrastructure Builder',
+const phrases=[
+  'DevOps / DevSecOps Engineer','AWS Cloud Practitioner',
+  'Terraform & IaC Specialist','Kubernetes & Docker Enthusiast',
+  'CI/CD Pipeline Architect','Security-First Infrastructure Builder',
 ];
-let pi = 0, ci = 0, del = false;
-const twEl = document.getElementById('tw-text');
-function type() {
-  const p = phrases[pi];
-  if (!del) { ci++; twEl.textContent = p.slice(0, ci); if (ci === p.length) { del = true; setTimeout(type, 2000); return; } }
-  else { ci--; twEl.textContent = p.slice(0, ci); if (ci === 0) { del = false; pi = (pi + 1) % phrases.length; setTimeout(type, 400); return; } }
-  setTimeout(type, del ? 35 : 70);
+let pi=0,ci=0,del=false;
+const twEl=document.getElementById('tw-text');
+function type(){
+  const p=phrases[pi];
+  if(!del){ci++;twEl.textContent=p.slice(0,ci);if(ci===p.length){del=true;setTimeout(type,2000);return;}}
+  else{ci--;twEl.textContent=p.slice(0,ci);if(ci===0){del=false;pi=(pi+1)%phrases.length;setTimeout(type,400);return;}}
+  setTimeout(type,del?35:70);
 }
-setTimeout(type, 1000);
-
-/* ── SCROLL REVEAL ── */
-const io = new IntersectionObserver(entries => {
-  entries.forEach((e, i) => { if (e.isIntersecting) setTimeout(() => e.target.classList.add('in'), i * 100); });
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal,.reveal-left').forEach(el => io.observe(el));
-
-/* ── SKILL BARS ── */
-const skillIo = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.querySelectorAll('.sk-fill').forEach(b => { b.style.width = b.dataset.w + '%'; });
+setTimeout(type,1000);
+const io=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('in'),i*100);});
+},{threshold:0.1});
+document.querySelectorAll('.reveal,.reveal-left').forEach(el=>io.observe(el));
+const skillIo=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.sk-fill').forEach(b=>{b.style.width=b.dataset.w+'%';});
       skillIo.unobserve(e.target);
     }
   });
-}, { threshold: 0.3 });
-document.querySelectorAll('.skill-card').forEach(c => skillIo.observe(c));
-
-/* ── NAV ACTIVE ── */
-const secs = document.querySelectorAll('section[id]');
-const navAs = document.querySelectorAll('.nav-links a');
-window.addEventListener('scroll', () => {
-  let cur = '';
-  secs.forEach(s => { if (window.scrollY >= s.offsetTop - 140) cur = s.id; });
-  navAs.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + cur); });
+},{threshold:0.3});
+document.querySelectorAll('.skill-card').forEach(c=>skillIo.observe(c));
+const secs=document.querySelectorAll('section[id]');
+const navAs=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  secs.forEach(s=>{if(window.scrollY>=s.offsetTop-140)cur=s.id;});
+  navAs.forEach(a=>{a.classList.toggle('active',a.getAttribute('href')==='#'+cur);});
 });
-
-/* ── KEYBOARD BOOT ── */
-document.addEventListener('keydown', e => {
-  if (e.key === 'Enter' && document.getElementById('boot').style.display !== 'none') enterPortfolio();
+document.addEventListener('keydown',e=>{
+  if(e.key==='Enter'&&document.getElementById('boot').style.display!=='none')enterPortfolio();
 });
 </script>
 </body>
